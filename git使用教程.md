@@ -117,6 +117,32 @@ git status 命令可以让我们时刻掌握仓库当前的状态
 ### git tag /git tag <版本号>/git tag <版本号> <commit>
 查看当前分支的tag/为当前分支添加tag/从指定的提交处打一个tag
 
+### git tag -a <版本号> -m <提交信息>
+为当前分支添加tag并且指定标签信息
+
 ### git show <版本号>
 查看该tag的提交信息
 
+### git tag -d <版本号>
+删除指定版本的tag标签
+
+### git push origin :refs/tags/<版本号>
+删除远程仓库指定版本号的tag
+
+### git push origin <tagname>/git push origin --tags
+推送某个标签到远程仓库/推送所有标签到远程仓库
+
+### git remote rm origin
+删除已有的远程仓库关联
+
+### git remote add origin xxx.git
+添加远程仓库关联
+
+## 从本地git上传到github仓库（不设置ssh）
+ * git remote add origin https://github.com/FinalArno/testgit.git
+ * git pull --rebase origin master
+ * git push -u origin master
+ * 大功告成
+
+### 忽略某些文件时，需要编写.gitignore
+[官方配置文件地址]('https://github.com/github/gitignore')
