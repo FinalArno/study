@@ -61,3 +61,7 @@ git status 命令可以让我们时刻掌握仓库当前的状态
 ### git reset HEAD 文件名
 
 可以把 git add 撤销，即把暂缓区的修改撤销，重新放回工作区，（就是修改还在，但是撤销了 git add）
+
+## github 使用教程
+
+1，先登陆 github，创建一个仓库，然后复制链接,git clone xxx.git 把仓库代码克隆到本地，然后进行开发，git add \*添加到暂缓区，git commit 提交到本地，然后 git push origin master 提交到主分支
