@@ -83,3 +83,6 @@ git status 命令可以让我们时刻掌握仓库当前的状态
 
 ### git log --graph
 查看分支合并图
+
+### git merge --no-ff -m 'xxxx' <branch>
+合并的时候提交信息，可以保留合并的分记录
