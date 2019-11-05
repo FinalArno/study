@@ -94,3 +94,6 @@ git status 命令可以让我们时刻掌握仓库当前的状态
 ### git --cherry-pick <commit>
 复制一个特定的提交到当前分支,
 >其使用条件：如果当前在dev分支开发，线上有一个bug，切换到master（线上分支）分支后，从master分支创建一个issue-01分支，然后修改bug，提交，切换到master分支合并issue-01分支，并删除issue-01分支，此时切换到dev分支继续开发，但是想要把修改的bug也合并到当前分支，就用--cherry-prick 版本号 来使得dev分支也有issue-01分支修改后的内容
+
+### git branch -D <branch>
+删除一个还没有合并过的分支，-D是强制删除的意思，-d是普通删除（不能删除未合并的分支）
