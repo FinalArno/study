@@ -62,9 +62,21 @@ git status 命令可以让我们时刻掌握仓库当前的状态
 
 可以把 git add 撤销，即把暂缓区的修改撤销，重新放回工作区，（就是修改还在，但是撤销了 git add）
 
-## github 使用教程
+### 配合 github 使用教程
 
 1，先登陆 github，创建一个仓库，然后复制链接,`git clone xxx.git` 把仓库代码克隆到本地，然后进行开发，`git add *`添加到暂缓区，git commit 提交到本地，然后 `git push origin master` 提交到主分支
 2，`git checkout -b dev`,创建并切换到dev分支，然后修改内容，`git add *`，`git commit`到dev分支，这时候有两个选择：
   * 1⃣如果不需要把dev分支提交到github远程仓库上，那么直接`git checkout master`切换到master分支，然后git merge dev，将dev修改的内合并到master分支
   * 2⃣️如果需要将dev分支提交到github远程仓库，那么直接使用 `git push origin dev` 就可以将dev分支提交到github远程仓库并在github上创建dev分支
+
+### git checkout <branch>/ git switch <branch>
+切换到某个分支，由于`git checkout <branch>` 与`git checkout -- <file>`容易产生歧义，后来新增了`git switch <branch>`
+
+### git switch -c <branch>
+创建并切换到某分支(当前mac不支持这个命令)
+
+### git branch /git  branch <branch>/ git branch -d <branch>
+查看所有分支/创建一个分支/删除某个分支
+
+### git merge <branch>
+合并<branch>分支到当前分支
