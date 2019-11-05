@@ -97,3 +97,15 @@ git status 命令可以让我们时刻掌握仓库当前的状态
 
 ### git branch -D <branch>
 删除一个还没有合并过的分支，-D是强制删除的意思，-d是普通删除（不能删除未合并的分支）
+
+### git remote /git remote -v
+查看远程仓库信息/查看远程仓库详细信息
+
+### git branch --set-upstream-to=origin/dev dev
+如果git pull失败，则说明本地分支和远程分支的链接关系没有创建，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，设置dev和origin/dev的链接：
+
+### git checkout -b <branch-name> origin/<branch-name>
+在本地创建和远程分支对应的分支
+
+### git pull
+从远程仓库获取分支
