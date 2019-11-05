@@ -54,9 +54,9 @@ git status 命令可以让我们时刻掌握仓库当前的状态
 
 ### git checkout 其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。
 
-> 场景 1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令 git checkout -- file。
+> 场景 1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令 `git checkout -- file`。
 
-> 场景 2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令 git reset HEAD <file>，就回到了场景 1，第二步按场景 1 操作。
+> 场景 2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令 `git reset HEAD <file>`，就回到了场景 1，第二步按场景 1 操作。
 
 ### git reset HEAD 文件名
 
@@ -64,7 +64,7 @@ git status 命令可以让我们时刻掌握仓库当前的状态
 
 ## github 使用教程
 
-1，先登陆 github，创建一个仓库，然后复制链接,git clone xxx.git 把仓库代码克隆到本地，然后进行开发，git add \*添加到暂缓区，git commit 提交到本地，然后 git push origin master 提交到主分支
-2，git checkout -b dev,创建并切换到dev分支，然后修改内容，git add *，git commit到dev分支，这时候有两个选择：
-  1⃣️如果不需要把dev分支提交到github远程仓库上，那么直接git checkout master切换到master分支，然后git merge dev，将dev修改的内合并到master分支
-  2⃣️如果需要将dev分支提交到github远程仓库，那么直接使用 git push origin dev 就可以将dev分支提交到github远程仓库并在github上创建dev分支
+1，先登陆 github，创建一个仓库，然后复制链接,`git clone xxx.git` 把仓库代码克隆到本地，然后进行开发，`git add *`添加到暂缓区，git commit 提交到本地，然后 `git push origin master` 提交到主分支
+2，`git checkout -b dev`,创建并切换到dev分支，然后修改内容，`git add *`，`git commit`到dev分支，这时候有两个选择：
+  * 1⃣如果不需要把dev分支提交到github远程仓库上，那么直接`git checkout master`切换到master分支，然后git merge dev，将dev修改的内合并到master分支
+  * 2⃣️如果需要将dev分支提交到github远程仓库，那么直接使用 `git push origin dev` 就可以将dev分支提交到github远程仓库并在github上创建dev分支
