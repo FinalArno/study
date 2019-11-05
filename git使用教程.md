@@ -80,3 +80,6 @@ git status 命令可以让我们时刻掌握仓库当前的状态
 
 ### git merge <branch>
 合并<branch>分支到当前分支
+
+### git log --graph
+查看分支合并图
