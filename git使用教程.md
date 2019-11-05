@@ -109,3 +109,14 @@ git status 命令可以让我们时刻掌握仓库当前的状态
 
 ### git pull
 从远程仓库获取分支
+
+### git rebase
+ * rebase操作可以把本地未push的分叉提交历史整理成直线；
+ * rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。
+
+### git tag /git tag <版本号>/git tag <版本号> <commit>
+查看当前分支的tag/为当前分支添加tag/从指定的提交处打一个tag
+
+### git show <版本号>
+查看该tag的提交信息
+
