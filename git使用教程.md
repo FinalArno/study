@@ -65,3 +65,6 @@ git status 命令可以让我们时刻掌握仓库当前的状态
 ## github 使用教程
 
 1，先登陆 github，创建一个仓库，然后复制链接,git clone xxx.git 把仓库代码克隆到本地，然后进行开发，git add \*添加到暂缓区，git commit 提交到本地，然后 git push origin master 提交到主分支
+2，git checkout -b dev,创建并切换到dev分支，然后修改内容，git add *，git commit到dev分支，这时候有两个选择：
+  1⃣️如果不需要把dev分支提交到github远程仓库上，那么直接git checkout master切换到master分支，然后git merge dev，将dev修改的内合并到master分支
+  2⃣️如果需要将dev分支提交到github远程仓库，那么直接使用 git push origin dev 就可以将dev分支提交到github远程仓库并在github上创建dev分支
