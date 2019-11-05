@@ -85,4 +85,4 @@ git status 命令可以让我们时刻掌握仓库当前的状态
 查看分支合并图
 
 ### git merge --no-ff -m 'xxxx' <branch>
-合并的时候提交信息，可以保留合并的分记录(可以看出合并记录，ff表示fast-forward模式)
+合并的时候提交信息，可以保留合并的分记录(可以看出合并记录，ff表示fast-forward模式,方便回退)
