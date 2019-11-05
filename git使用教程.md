@@ -86,3 +86,11 @@ git status 命令可以让我们时刻掌握仓库当前的状态
 
 ### git merge --no-ff -m 'xxxx' <branch>
 合并的时候提交信息，可以保留合并的分记录(可以看出合并记录，ff表示fast-forward模式,方便回退)
+
+### git stash 
+存储现场的工作，然后切换到其他分支去修改bug，修改好了提交合并push，然后返回当前分支使用 git stash list查看当前存储的列表,
+可以用git stash pop 恢复存储到工作区，并且删除git stash list的内容（即删除存储区）
+
+### git --cherry-pick <commit>
+复制一个特定的提交到当前分支,
+>其使用条件：如果当前在dev分支开发，线上有一个bug，切换到master（线上分支）分支后，从master分支创建一个issue-01分支，然后修改bug，提交，切换到master分支合并issue-01分支，并删除issue-01分支，此时切换到dev分支继续开发，但是想要把修改的bug也合并到当前分支，就用--cherry-prick 版本号 来使得dev分支也有issue-01分支修改后的内容
