@@ -68,3 +68,5 @@ git status 命令可以让我们时刻掌握仓库当前的状态
 2，`git checkout -b dev`,创建并切换到dev分支，然后修改内容，`git add *`，`git commit`到dev分支，这时候有两个选择：
   * 1⃣如果不需要把dev分支提交到github远程仓库上，那么直接`git checkout master`切换到master分支，然后git merge dev，将dev修改的内合并到master分支
   * 2⃣️如果需要将dev分支提交到github远程仓库，那么直接使用 `git push origin dev` 就可以将dev分支提交到github远程仓库并在github上创建dev分支
+
+### git圣经吧
