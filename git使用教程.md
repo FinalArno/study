@@ -172,3 +172,10 @@ git status 命令可以让我们时刻掌握仓库当前的状态
 ### 忽略某些文件时，需要编写.gitignore
 
 [官方配置文件地址]('https://github.com/github/gitignore')
+
+### ssh-keygen -t rsa -C "863780387@qq.com"
+
+> 由于你的本地 Git 仓库和 GitHub 仓库之间的传输是通过 SSH 加密的，所以，需要一点设置
+
+- 创建密钥对，一路回车，如果一切顺利的话，可以在用户主目录里找到.ssh 目录，里面有 id_rsa 和 id_rsa.pub 两个文件，这两个就是 SSH Key 的秘钥对，id_rsa 是私钥，不能泄露出去，id_rsa.pub 是公钥，可以放心地告诉任何人
+- 登陆 GitHub，打开“Account settings”，“SSH Keys”页面：然后，点“Add SSH Key”，填上任意 Title，在 Key 文本框里粘贴 id_rsa.pub 文件的内容：

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var a = new XMLHttpRequest()
+    a.open('POST', 'http://dev.buybit.io/api/v1/bitbuy/otc/bitbuyer/getVerfityCode', true);
+    var b = new FormData();
+    b.append('type', 'MOBILE')
+    a.send(b);
+    console.log(2)
+    a.onreadystatechange = function(data) {
+        console.log(3)
+        console.log(a.status);
+        if (a.status == 200) {
+            console.log(a.response)
+        }
+    }
+    a.onloadstart = function(dat) {
+        console.log(4)
+        console.log(dat)
+    }
+    a.onload = function(dat) {
+        console.log(5)
+        console.log(dat)
+    }
+    a.onloadend = function(dat) {
+        console.log(6)
+        console.log(dat)
+    }
+</script>
+
+</html>

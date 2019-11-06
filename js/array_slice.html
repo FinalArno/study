@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    z
+</body>
+<script>
+    Array.prototype.mySlice = function(begin, end) {
+        end = typeof end === "undefined" ? this.length : end;
+        var start = begin || 0;
+        var len = this.length;
+        var arr = [];
+        var size;
+        start = start >= 0 ? start : Math.max(0, len + start);
+        var upTo = typeof end == 'number' ? Math.min(end, len) : len;
+        if (end < 0) {
+            upTo = end + len;
+        }
+        size = upTo - start;
+        if (size > 0) {
+            for (var i = 0; i < size; i++) {
+                arr[i] = this[start + i];
+            }
+        }
+        return arr;
+    }
+    var a = [123, 3, 4, 4, 5, 2, 312, 31, 23, 23, 6, 6, 3]
+    console.log(a.mySlice(5))
+
+    function toList() {
+        return [].mySlice.call(arguments)
+    }
+    console.log(toList(1, 2, 3, 4))
+</script>
+
+</html>
