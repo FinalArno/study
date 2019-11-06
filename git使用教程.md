@@ -65,84 +65,110 @@ git status 命令可以让我们时刻掌握仓库当前的状态
 ### 配合 github 使用教程
 
 1，先登陆 github，创建一个仓库，然后复制链接,`git clone xxx.git` 把仓库代码克隆到本地，然后进行开发，`git add *`添加到暂缓区，git commit 提交到本地，然后 `git push origin master` 提交到主分支
-2，`git checkout -b dev`,创建并切换到dev分支，然后修改内容，`git add *`，`git commit`到dev分支，这时候有两个选择：
-  * 1⃣如果不需要把dev分支提交到github远程仓库上，那么直接`git checkout master`切换到master分支，然后git merge dev，将dev修改的内合并到master分支
-  * 2⃣️如果需要将dev分支提交到github远程仓库，那么直接使用 `git push origin dev` 就可以将dev分支提交到github远程仓库并在github上创建dev分支
+2，`git checkout -b dev`,创建并切换到 dev 分支，然后修改内容，`git add *`，`git commit`到 dev 分支，这时候有两个选择：
+
+- 1⃣ 如果不需要把 dev 分支提交到 github 远程仓库上，那么直接`git checkout master`切换到 master 分支，然后 `git merge dev`，将 dev 修改的内合并到 master 分支
+- 2⃣️ 如果需要将 dev 分支提交到 github 远程仓库，那么直接使用 `git push origin dev` 就可以将 dev 分支提交到 github 远程仓库并在 github 上创建 dev 分支
 
 ### git checkout <branch>/ git switch <branch>
+
 切换到某个分支，由于`git checkout <branch>` 与`git checkout -- <file>`容易产生歧义，后来新增了`git switch <branch>`
 
 ### git switch -c <branch>
-创建并切换到某分支(当前mac不支持这个命令)
 
-### git branch /git  branch <branch>/ git branch -d <branch>
+创建并切换到某分支(当前 mac 不支持这个命令)
+
+### git branch /git branch <branch>/ git branch -d <branch>
+
 查看所有分支/创建一个分支/删除某个分支
 
 ### git merge <branch>
+
 合并<branch>分支到当前分支
 
 ### git log --graph
+
 查看分支合并图
 
 ### git merge --no-ff -m 'xxxx' <branch>
-合并的时候提交信息，可以保留合并的分记录(可以看出合并记录，ff表示fast-forward模式,方便回退)
 
-### git stash 
-存储现场的工作，然后切换到其他分支去修改bug，修改好了提交合并push，然后返回当前分支使用 git stash list查看当前存储的列表,
-可以用git stash pop 恢复存储到工作区，并且删除git stash list的内容（即删除存储区）
+合并的时候提交信息，可以保留合并的分记录(可以看出合并记录，ff 表示 fast-forward 模式,方便回退)
+
+### git stash
+
+存储现场的工作，然后切换到其他分支去修改 bug，修改好了提交合并 push，然后返回当前分支使用 git stash list 查看当前存储的列表,
+可以用 git stash pop 恢复存储到工作区，并且删除 git stash list 的内容（即删除存储区）
 
 ### git --cherry-pick <commit>
+
 复制一个特定的提交到当前分支,
->其使用条件：如果当前在dev分支开发，线上有一个bug，切换到master（线上分支）分支后，从master分支创建一个issue-01分支，然后修改bug，提交，切换到master分支合并issue-01分支，并删除issue-01分支，此时切换到dev分支继续开发，但是想要把修改的bug也合并到当前分支，就用--cherry-prick 版本号 来使得dev分支也有issue-01分支修改后的内容
+
+> 其使用条件：如果当前在 dev 分支开发，线上有一个 bug，切换到 master（线上分支）分支后，从 master 分支创建一个 issue-01 分支，然后修改 bug，提交，切换到 master 分支合并 issue-01 分支，并删除 issue-01 分支，此时切换到 dev 分支继续开发，但是想要把修改的 bug 也合并到当前分支，就用--cherry-prick 版本号 来使得 dev 分支也有 issue-01 分支修改后的内容
 
 ### git branch -D <branch>
-删除一个还没有合并过的分支，-D是强制删除的意思，-d是普通删除（不能删除未合并的分支）
+
+删除一个还没有合并过的分支，-D 是强制删除的意思，-d 是普通删除（不能删除未合并的分支）
 
 ### git remote /git remote -v
+
 查看远程仓库信息/查看远程仓库详细信息
 
 ### git branch --set-upstream-to=origin/dev dev
-如果git pull失败，则说明本地分支和远程分支的链接关系没有创建，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，设置dev和origin/dev的链接：
+
+如果 git pull 失败，则说明本地分支和远程分支的链接关系没有创建，原因是没有指定本地 dev 分支与远程 origin/dev 分支的链接，根据提示，设置 dev 和 origin/dev 的链接：
 
 ### git checkout -b <branch-name> origin/<branch-name>
+
 在本地创建和远程分支对应的分支
 
 ### git pull
+
 从远程仓库获取分支
 
 ### git rebase
- * rebase操作可以把本地未push的分叉提交历史整理成直线；
- * rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。
+
+- rebase 操作可以把本地未 push 的分叉提交历史整理成直线；
+- rebase 的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。
 
 ### git tag /git tag <版本号>/git tag <版本号> <commit>
-查看当前分支的tag/为当前分支添加tag/从指定的提交处打一个tag
+
+查看当前分支的 tag/为当前分支添加 tag/从指定的提交处打一个 tag
 
 ### git tag -a <版本号> -m <提交信息>
-为当前分支添加tag并且指定标签信息
+
+为当前分支添加 tag 并且指定标签信息
 
 ### git show <版本号>
-查看该tag的提交信息
+
+查看该 tag 的提交信息
 
 ### git tag -d <版本号>
-删除指定版本的tag标签
+
+删除指定版本的 tag 标签
 
 ### git push origin :refs/tags/<版本号>
-删除远程仓库指定版本号的tag
+
+删除远程仓库指定版本号的 tag
 
 ### git push origin <tagname>/git push origin --tags
+
 推送某个标签到远程仓库/推送所有标签到远程仓库
 
 ### git remote rm origin
+
 删除已有的远程仓库关联
 
 ### git remote add origin xxx.git
+
 添加远程仓库关联
 
-## 从本地git上传到github仓库（不设置ssh）
- * git remote add origin https://github.com/FinalArno/testgit.git
- * git pull --rebase origin master
- * git push -u origin master
- * 大功告成
+## 从本地 git 上传到 github 仓库（不设置 ssh）
+
+- git remote add origin https://github.com/FinalArno/testgit.git(把本地仓库与远程github关联起来)
+- git pull --rebase origin master（貌似是这一步让这个玩意可以 push）
+- git push -u origin master（第一次 push 才需要加 -u）
+- 大功告成
 
 ### 忽略某些文件时，需要编写.gitignore
+
 [官方配置文件地址]('https://github.com/github/gitignore')
