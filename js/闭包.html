@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="../jquery/jquery.js"></script> -->
+</head>
+
+<body>
+
+</body>
+<script>
+    //下面是jquery的闭包实现，首先用IIFE立即执行函数，将一个匿名函数传入立即执行函数中，
+    //这个匿名函数里面的slice等参数就可以在toArray函数中访问，这就形成了闭包
+    //
+    (function(fn) {
+        fn();
+    })(function() {
+        var arr = [];
+        var slice = arr.slice;
+        var jquery = function() {
+            return this;
+        }
+        jquery.fn = jquery.prototype = {
+            toArray: function() {
+                ///通过访问外部变量slice来实现闭包
+                return slice.call(this);
+            }
+        }
+        window.jquery = window.$ = jquery;
+    })
+    console.log($(''))
+</script>
+
+</html>
