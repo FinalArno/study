@@ -4,7 +4,7 @@
 
 ```
 function toList() {
-      return [].mySlice.call(arguments)
+      return [].slice.call(arguments)
 }
 console.log(toList(1, 2, 3, 4))
 
