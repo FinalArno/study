@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #vue-app {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .inputs {
+        margin: 10px 0;
+    }
+    
+    .inputs span {
+        font-size: 18px;
+        color: blueviolet;
+    }
+    
+    .inputs span::after {
+        content: ':';
+    }
+    
+    button {
+        margin: 30px 0;
+        width: 120px;
+        height: 40px;
+        background-color: cadetblue;
+        border-radius: 6px;
+        outline: none;
+        color: #ffffff;
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <div id="vue-app">
+        <div class='inputs'>
+            <span>p</span>
+            <input type="text" v-model='p'>
+        </div>
+        <div class='inputs'>
+            <span>q</span>
+            <input type="text" v-model='q'>
+        </div>
+        <div class='inputs'>
+            <span>h</span>
+            <input type="text" v-model='h'>
+        </div>
+        <div class='inputs'>
+            <span>x</span>
+            <input type="text" v-model='x'>
+        </div>
+        <div class='inputs'>
+            <span>汇率</span>
+            <input type="text" v-model='hl'>
+        </div>
+        <button @click="caculate">点击</button>
+        <h3>it:{{it}}</h3>
+        <h3>y:{{showY?parseFloat(showY).toFixed(3):''}}</h3>
+        <h3>结果：{{result}}</h3>
+    </div>
+</body>
+<script type="text/javascript" src="https://unpkg.com/vue"></script>
+
+<script>
+    new Vue({
+        el: "#vue-app",
+        data: {
+            p: '',
+            q: '',
+            h: '',
+            x: '',
+            y: 0.4088,
+            pt: 60,
+            hl: '',
+            result: '',
+            it: '',
+            showY: '',
+        },
+        methods: {
+            caculate() {
+                console.log(this.$http)
+                let reg = /^([1-9][0-9]{0,}|0)(\.[0-9]+)?$/
+                if (!reg.test(this.p)) return alert('请输入正确的p');
+                if (!reg.test(this.q)) return alert('请输入正确的q');
+                if (!reg.test(this.h)) return alert('请输入正确的h');
+                if (!reg.test(this.x)) return alert('请输入正确的x');
+                if (!reg.test(this.hl)) return alert('请输入正确的汇率');
+                this.showY = parseFloat(this.y / Number(this.hl)).toFixed(3);
+                var it = Number(this.x) - (Number(this.showY) * this.pt / 100);
+                this.it = parseFloat(it).toFixed(4)
+                this.result = parseFloat((Number(this.q) * Number(this.h) * (Number(this.x) - (Number(this.showY) * this.p / 100))) / it).toFixed(6);
+            }
+        },
+    })
+</script>
+
+</html>
