@@ -51,7 +51,7 @@ Scss 代码片段：
 
 ## 1.1 变量申明
 
-变量可以申明在{}之外，也可以申明在其中。如果在{}之内，则只能供此规则块内使用
+变量可以申明在{}之外，也可以申明在其中。如果在{}之内，则只能供此规则块内使用，如果想将规则块中的局部变量变成全局变量，在后面加上!global 即可。
 
 ```scss
 $hightlight-color: #f90;
@@ -63,7 +63,7 @@ $hightlight-color: #f90;
 $hightlight-color: #f90;
 .selected {
   color: $hightlight-color;
-  $width: 100px;
+  $width: 100px !global; //这里就将局部变量变成了全局变量
   width: $width;
   border: 1px solid $hightlight-color;
 }
@@ -437,3 +437,7 @@ h1.error {
   @extend a;
 }
 ```
+
+## 6-3 继承的好处
+
+@extend 可以提高站点的速度，让你的 css 美观整洁，但是不要在 css 规则中使用后代选择器（比如 .foo .bar）去继承 css 规则
