@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script type="text/javascript" src="https://unpkg.com/vue"></script>
+<script>
+    var aa = new Vue({
+        data: {
+            name: 'arno'
+        },
+        render(h) {
+            // return h(
+            //     'h1',
+            //     this.name,
+            // );
+            throw new Error("oops"); //这里抛出错误下面的renderError函数就会调用，如果不抛出错误就不会调用下面的renderError函数
+        },
+        renderError(h, err) {
+            return h("pre", {
+                style: {
+                    color: "green"
+                }
+            }, err.stack);
+        }
+    }).$mount("#app")
+</script>

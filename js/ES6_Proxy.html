@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-  </head>
-  <body></body>
-  <script>
-    let Dom = new Proxy(
-      {},
-      {
+</head>
+
+<body></body>
+<script>
+    let Dom = new Proxy({}, {
         get(target, pro) {
-          return function(attr = {}, ...children) {
-            let el = document.createElement(pro);
-            for (let key of Object.keys(attr)) {
-              el.setAttribute(key, attr[key]);
-            }
-            for (let value of children) {
-              if (typeof value == "string") {
-                value = document.createTextNode(value);
-              }
-              el.appendChild(value);
-            }
-            return el;
-          };
+            return function(attr = {}, ...children) {
+                let el = document.createElement(pro);
+                for (let key of Object.keys(attr)) {
+                    el.setAttribute(key, attr[key]);
+                }
+                for (let value of children) {
+                    if (typeof value == "string") {
+                        value = document.createTextNode(value);
+                    }
+                    el.appendChild(value);
+                }
+                return el;
+            };
         }
-      }
-    );
-    let odiv = Dom.div(
-      { id: "div1" },
-      "牧马人",
-      Dom.a({ href: "https://www.baidu.com", target: "blank" }, "链接")
+    });
+    let odiv = Dom.div({
+            id: "div1"
+        },
+        "牧马人",
+        Dom.a({
+            href: "https://www.baidu.com",
+            target: "blank"
+        }, "链接")
     );
     document.body.appendChild(odiv);
     console.log(odiv);
-  </script>
+</script>
+
 </html>

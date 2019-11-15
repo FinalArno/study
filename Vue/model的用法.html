@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <my-checkbox v-model="foo" value="some value"></my-checkbox>
+    </div>
+</body>
+<script src="http://unpkg.com/vue"></script>
+<script>
+    Vue.component('my-checkbox', {
+        model: {
+            prop: 'checked',
+            event: 'change'
+        },
+        props: {
+            // this allows using the `value` prop for a different purpose
+            value: String,
+            // use `checked` as the prop which take the place of `value`
+            checked: {
+                type: Number,
+                default: 0
+            }
+        },
+        methods: {
+            // change(e) {
+            //     console.log(e)
+            // }
+        },
+        template: '<input type="checkbox" v-model="checked">'
+            // ...
+    })
+    new Vue({
+        el: '#app',
+        data: {
+            foo: 0
+        },
+        methods: {
+            change(e) {
+                console.log(e)
+            }
+        },
+    })
+</script>
+
+</html>

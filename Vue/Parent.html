@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click='showMsg'>111</button>
+
+    </div>
+    <div id='app2'>
+        <button @click='showMsg2'>222</button>
+    </div>
+</body>
+<script src="http://unpkg.com/vue"></script>
+<script>
+    var parentVM = new Vue({
+        el: '#app',
+        data: {
+            msg: 123
+        },
+        methods: {
+            showMsg() {
+                console.log(this.$children)
+            }
+        },
+    })
+    var childVM = new Vue({
+        el: '#app2',
+        data: {
+            msg: 123
+        },
+        parent: parentVM,
+        methods: {
+            showMsg2() {
+                console.log(this.$parent)
+            }
+        },
+    })
+</script>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <div id="app2">{{ccc}}</div>
+</body>
+<script src="http://unpkg.com/vue"></script>
+<script>
+    var parentVm = new Vue({
+        el: '#app',
+        provide() {
+            return {
+                ppp: '1234321'
+            }
+        }
+    })
+    var childVm = new Vue({
+        el: '#app2',
+        parent: parentVm,
+        inject: {
+            ppp: {
+                defalut: 'kong de' //默认值
+            },
+            ccc: {
+                from: 'ppp', //不写from默认就是ccc
+                defalut: 'kong de' //默认值
+            },
+        },
+        props: { //将一个注入的值作为一个属性的默认值
+            bar: {
+                default () {
+                    return this.ppp
+                }
+            }
+        },
+        data() { //自组件的data必须是function
+            return {
+                foo: this.ccc
+            }
+        },
+
+        created() {
+            console.log(this.ccc, this.ppp, this.bar, this.foo);
+        },
+    })
+</script>
+
+</html>
